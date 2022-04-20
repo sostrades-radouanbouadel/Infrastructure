@@ -50,7 +50,7 @@ RUN pip install -r requirements.txt
 
 #------------------------------------------------------------------------------
 # Extract source code 'sostrades-webapi' and install python dependencies
-RUN git clone https://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@github.com/os-climate/sostrades-webapi.git /usr/local/sostrades/sources/sostrades-webapi
+RUN git clone https://github.com/os-climate/sostrades-webapi.git /usr/local/sostrades/sources/sostrades-webapi
 WORKDIR  /usr/local/sostrades/sources/sostrades-webapi/
 RUN ls
 RUN pip install -r requirements.txt
