@@ -24,7 +24,7 @@ RUN pip install gunicorn pandas
 #------------------------------------------------------------------------------
 # Install repository python dependencies
 WORKDIR /usr/local/sostrades/sostrades-ontology
-RUN pip install petsc
+RUN pip install --prefix=/tmp petsc
 RUN pip install -r requirements.txt
 
 #------------------------------------------------------------------------------
