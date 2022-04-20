@@ -18,6 +18,7 @@ COPY entrypoint.sh /startup/entrypoint.sh
 #------------------------------------------------------------------------------
 # Clone git repo & install dependency
 RUN git clone -b develop https://github.com/os-climate/sostrades-ontology.git
+RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN pip install gunicorn pandas
 
 #------------------------------------------------------------------------------
