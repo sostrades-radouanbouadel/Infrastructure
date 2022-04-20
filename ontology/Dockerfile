@@ -24,9 +24,8 @@ RUN pip install gunicorn pandas
 # Install repository python dependencies
 WORKDIR /usr/local/sostrades/sostrades-ontology
 RUN mkdir petsc 
-RUN cd petsc 
-RUN git clone -b release https://gitlab.com/petsc/petsc 
-RUN cd petsc 
+RUN cd petsc & git clone -b release https://gitlab.com/petsc/petsc 
+RUN cd petsc & ls -l
 RUN ./configure --download-mpich --download-fblaslapack 
 RUN make all check
 RUN pip install -r requirements.txt
