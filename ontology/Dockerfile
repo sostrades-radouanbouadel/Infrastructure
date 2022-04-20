@@ -24,7 +24,7 @@ RUN pip install gunicorn pandas
 # Install repository python dependencies
 
 RUN git clone -b release https://gitlab.com/petsc/petsc 
-WORKDIR cd /usr/local/sostrades/petsc  
+WORKDIR /usr/local/sostrades/petsc  
 RUN ls -l
 RUN ./configure --download-mpich --download-fblaslapack 
 RUN make all check
