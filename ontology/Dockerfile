@@ -17,18 +17,11 @@ COPY entrypoint.sh /startup/entrypoint.sh
 
 #------------------------------------------------------------------------------
 # Clone git repo & install dependency
-RUN git clone -b develop https://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@github.com/os-climate/sostrades-ontology.git
+RUN git clone -b develop https://github.com/os-climate/sostrades-ontology.git
 RUN pip install gunicorn pandas
 
 #------------------------------------------------------------------------------
 # Install repository python dependencies
-
-RUN git clone -b release https://gitlab.com/petsc/petsc 
-WORKDIR /usr/local/sostrades/petsc  
-RUN ls -l
-RUN ./configure --download-mpich --download-fblaslapack 
-RUN make all check
-
 WORKDIR /usr/local/sostrades/sostrades-ontology
 RUN pip install -r requirements.txt
 
