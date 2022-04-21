@@ -26,6 +26,14 @@ RUN apt-get install -y wget bzip2 git vim xmlsec1 libxmlsec1-dev pkg-config gcc 
 
 RUN pip install gunicorn numpy pyparsing==2.4.2 python-gitlab kubernetes gitpython  pylint==2.4.2
 
+#------------------------------------------------------------------------------
+# Install petsc
+RUN git clone -b release https://gitlab.com/petsc/petsc 
+WORKDIR /usr/local/sostrades/petsc  
+RUN ls -l
+RUN ./configure --download-mpich --download-fblaslapack --with-fc=0
+RUN make all check
+RUN export PETSC_DIR=/usr/local/sostrades/petsc
 
 #------------------------------------------------------------------------------
 # Extract source code 'sostrades-value-assessment' and install python dependencies
